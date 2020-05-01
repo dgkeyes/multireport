@@ -1,0 +1,42 @@
+---
+title: "Sample Report"
+author: "David Keyes"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+params:
+  state: "Oregon"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+
+# Inspiration from https://medium.com/@urban_institute/iterated-fact-sheets-with-r-markdown-d685eb4eafce
+```
+
+```{r}
+library(tidyverse)
+library(urbnthemes)
+library(fivethirtyeight)
+
+set_urbn_defaults(style = "print")
+```
+
+
+
+```{r}
+drivers_subset <- bad_drivers %>%
+  filter(state == params$state)
+
+drivers_subset %>%
+  mutate(perc_distracted = 100 - perc_not_distracted) %>%  
+  select(state, perc_speeding, perc_alcohol, perc_distracted) %>%
+  gather(key = "key", value = "value", -state) %>%
+  ggplot(aes(key, value)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 40)) +  
+  remove_ticks() +
+  labs(title = stringr::str_glue("Driver condition in fatal crashes in {params$state}"))
+```
+
