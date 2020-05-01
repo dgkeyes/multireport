@@ -6,7 +6,7 @@
 \usage{
 multireport(
   rmarkdown_file,
-  params_all_options,
+  param_all_options,
   param_name,
   report_format = "html_document",
   report_suffix = "report",
