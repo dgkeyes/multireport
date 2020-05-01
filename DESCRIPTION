@@ -13,3 +13,5 @@ Imports:
     purrr,
     magrittr
 RoxygenNote: 7.0.2
+URL: https://github.com/dgkeyes/multireport
+BugReports: https://github.com/dgkeyes/multireport/issues
