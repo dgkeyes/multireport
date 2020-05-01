@@ -22,3 +22,11 @@ multireport(
 \description{
 Title
 }
+\examples{
+multireport(rmarkdown_file = "inst/report.Rmd",
+params_all_options = fivethirtyeight::bad_drivers$state,
+param_name = "state",
+report_format = "html_document",
+report_suffix = "report",
+report_output_dir = "inst")
+}
