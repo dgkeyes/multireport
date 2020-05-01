@@ -1,17 +1,19 @@
-#' Title
+#' Generate multiple reports using parameterized reporting
 #'
-#' @param rmarkdown_file
-#' @param params_all_options
-#' @param param_name
-#' @param report_format
-#' @param report_suffix
+#' A function to simply parameterized reporting
+#'
+#' @param rmarkdown_file The RMarkdown file to be rendered
+#' @param param_all_options All possible options for the parameter (e.g. all 50 states)
+#' @param param_name The name of the parameter to be used for parameterized reporting
+#' @param report_format The format of the report (html_document, pdf_document, word_document, etc)
+#' @param report_suffix A prefix to be attached before the name of the parameter in the filename of each report rendered
 #'
 #' @return
 #' @export
 #'
 #' @examples
 #' multireport(rmarkdown_file = "inst/report.Rmd",
-#' params_all_options = fivethirtyeight::bad_drivers$state,
+#' param_all_options = fivethirtyeight::bad_drivers$state,
 #' param_name = "state",
 #' report_format = "html_document",
 #' report_suffix = "report",
@@ -20,7 +22,7 @@ multireport <- function(rmarkdown_file,
                         param_all_options,
                         param_name,
                         report_format = "html_document",
-                        report_suffix = "report",
+                        report_prefix = "report",
                         report_output_dir = "inst") {
 
   reports <- tibble::tibble(

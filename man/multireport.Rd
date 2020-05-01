@@ -2,29 +2,37 @@
 % Please edit documentation in R/multireport.R
 \name{multireport}
 \alias{multireport}
-\title{Title}
+\title{Generate multiple reports using parameterized reporting}
 \usage{
 multireport(
   rmarkdown_file,
   param_all_options,
   param_name,
   report_format = "html_document",
-  report_suffix = "report",
+  report_prefix = "report",
   report_output_dir = "inst"
 )
 }
 \arguments{
-\item{report_suffix}{}
+\item{rmarkdown_file}{The RMarkdown file to be rendered}
+
+\item{param_all_options}{All possible options for the parameter (e.g. all 50 states)}
+
+\item{param_name}{The name of the parameter to be used for parameterized reporting}
+
+\item{report_format}{The format of the report (html_document, pdf_document, word_document, etc)}
+
+\item{report_suffix}{A prefix to be attached before the name of the parameter in the filename of each report rendered}
 }
 \value{
 
 }
 \description{
-Title
+A function to simply parameterized reporting
 }
 \examples{
 multireport(rmarkdown_file = "inst/report.Rmd",
-params_all_options = fivethirtyeight::bad_drivers$state,
+param_all_options = fivethirtyeight::bad_drivers$state,
 param_name = "state",
 report_format = "html_document",
 report_suffix = "report",
