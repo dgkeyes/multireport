@@ -9,7 +9,7 @@ multireport(
   param_all_options,
   param_name,
   report_format = "html_document",
-  report_prefix = "report",
+  report_suffix = "report",
   report_output_dir = "inst"
 )
 }
@@ -22,7 +22,7 @@ multireport(
 
 \item{report_format}{The format of the report (html_document, pdf_document, word_document, etc)}
 
-\item{report_prefix}{The name of the prefix of the report names}
+\item{report_suffix}{The name of the prefix of the report names}
 
 \item{report_output_dir}{The name of the directory where the reports will be rendered to}
 }
@@ -31,12 +31,4 @@ multireport(
 }
 \description{
 A function to simply parameterized reporting
-}
-\examples{
-multireport(rmarkdown_file = "inst/report.Rmd",
-param_all_options = fivethirtyeight::bad_drivers$state,
-param_name = "state",
-report_format = "html_document",
-report_suffix = "report",
-report_output_dir = "inst")
 }
