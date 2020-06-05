@@ -1,11 +1,11 @@
 Package: multireport
 Type: Package
-Title: A package to simplify parameterized reporting.
+Title: A package to simplify parameterized reporting
 Version: 0.1.0
 Author: David Keyes
 Maintainer: David Keyes <david@rfortherestofus.com>
 Description: Parameterized reporting is powerful but complicated.
-    This package makes it simpler by providing a single function — multireport — 
+    This package makes it simpler by providing a single function — multireport() — 
     to simplify the processing.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -16,7 +16,8 @@ Imports:
     rlang,
     tibble,
     stringr,
-    tidyr
+    tidyr,
+    fivethirtyeight
 RoxygenNote: 7.0.2
 URL: https://github.com/dgkeyes/multireport
 BugReports: https://github.com/dgkeyes/multireport/issues
