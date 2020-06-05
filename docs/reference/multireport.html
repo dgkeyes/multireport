@@ -143,8 +143,12 @@
       <td><p>The format of the report (html_document, pdf_document, word_document, etc)</p></td>
     </tr>
     <tr>
-      <th>report_suffix</th>
-      <td><p>A prefix to be attached before the name of the parameter in the filename of each report rendered</p></td>
+      <th>report_prefix</th>
+      <td><p>The name of the prefix of the report names</p></td>
+    </tr>
+    <tr>
+      <th>report_output_dir</th>
+      <td><p>The name of the directory where the reports will be rendered to</p></td>
     </tr>
     </table>
 
@@ -160,7 +164,7 @@
 <span class='kw'>param_name</span> <span class='kw'>=</span> <span class='st'>"state"</span>,
 <span class='kw'>report_format</span> <span class='kw'>=</span> <span class='st'>"html_document"</span>,
 <span class='kw'>report_suffix</span> <span class='kw'>=</span> <span class='st'>"report"</span>,
-<span class='kw'>report_output_dir</span> <span class='kw'>=</span> <span class='st'>"inst"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in multireport(rmarkdown_file = "inst/report.Rmd", param_all_options = fivethirtyeight::bad_drivers$state,     param_name = "state", report_format = "html_document", report_suffix = "report",     report_output_dir = "inst"): unused argument (report_suffix = "report")</span></div></pre>
+<span class='kw'>report_output_dir</span> <span class='kw'>=</span> <span class='st'>"inst"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in tibble::tibble(output_format = report_format, output_file = stringr::str_glue("{param_all_options}-{report_suffix}"),     output_dir = report_output_dir, params = purrr::map(param_all_options,         ~list(setNames(list(.), param_name)))) %&gt;% tidyr::unnest(params): could not find function "%&gt;%"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

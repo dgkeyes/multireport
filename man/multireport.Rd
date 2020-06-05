@@ -22,7 +22,9 @@ multireport(
 
 \item{report_format}{The format of the report (html_document, pdf_document, word_document, etc)}
 
-\item{report_suffix}{A prefix to be attached before the name of the parameter in the filename of each report rendered}
+\item{report_prefix}{The name of the prefix of the report names}
+
+\item{report_output_dir}{The name of the directory where the reports will be rendered to}
 }
 \value{
 
