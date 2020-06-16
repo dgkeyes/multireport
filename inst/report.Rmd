@@ -5,6 +5,7 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
 params:
   state: "Oregon"
+  losses: 100
 ---
 
 ```{r setup, include=FALSE}
@@ -23,6 +24,7 @@ library(fivethirtyeight)
 set_urbn_defaults(style = "print")
 ```
 
+The number of losses is `r params$losses`.
 
 
 ```{r}

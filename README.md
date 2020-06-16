@@ -27,12 +27,17 @@ This shows how to make multiple reports using the
 ``` r
 library(multireport)
 
+baddrivers_params <- tibble::tibble(
+  state = fivethirtyeight::bad_drivers$state,
+  losses = fivethirtyeight::bad_drivers$losses
+)
+
 multireport(rmarkdown_file = "report.Rmd",
-            param_all_options = fivethirtyeight::bad_drivers$state,
-            param_name = "state",
+            params_data_frame = baddrivers_params,
             report_format = "html_document",
-            report_suffix = "report",
-            report_output_dir = "reports")
+            report_prefix = "",
+            report_suffix = "",
+            report_output_directory = "reports")
 ```
 
-This will generate a series of reports in the report folder.
+This will generate a series of reports in the reports folder.

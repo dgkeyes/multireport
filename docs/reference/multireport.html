@@ -116,11 +116,11 @@
 
     <pre class="usage"><span class='fu'>multireport</span>(
   <span class='no'>rmarkdown_file</span>,
-  <span class='no'>param_all_options</span>,
-  <span class='no'>param_name</span>,
+  <span class='no'>params_data_frame</span>,
   <span class='kw'>report_format</span> <span class='kw'>=</span> <span class='st'>"html_document"</span>,
-  <span class='kw'>report_suffix</span> <span class='kw'>=</span> <span class='st'>"report"</span>,
-  <span class='kw'>report_output_dir</span> <span class='kw'>=</span> <span class='st'>"inst"</span>
+  <span class='kw'>report_prefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>report_suffix</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>report_output_directory</span> <span class='kw'>=</span> <span class='kw pkg'>here</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/here/man/here.html'>here</a></span>()
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -131,20 +131,20 @@
       <td><p>The RMarkdown file to be rendered</p></td>
     </tr>
     <tr>
-      <th>param_all_options</th>
-      <td><p>All possible options for the parameter (e.g. all 50 states)</p></td>
-    </tr>
-    <tr>
-      <th>param_name</th>
-      <td><p>The name of the parameter to be used for parameterized reporting</p></td>
+      <th>params_data_frame</th>
+      <td><p>A data frame with all of the parameter options (each variable name is the name of a parameter and all of the rows in that column are the parameter options)</p></td>
     </tr>
     <tr>
       <th>report_format</th>
       <td><p>The format of the report (html_document, pdf_document, word_document, etc)</p></td>
     </tr>
     <tr>
+      <th>report_prefix</th>
+      <td><p>Text to be put before the file names of rendered reports</p></td>
+    </tr>
+    <tr>
       <th>report_suffix</th>
-      <td><p>The name of the prefix of the report names</p></td>
+      <td><p>Text to be put fterfile names of rendered reports</p></td>
     </tr>
     <tr>
       <th>report_output_dir</th>

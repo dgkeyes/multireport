@@ -6,23 +6,23 @@
 \usage{
 multireport(
   rmarkdown_file,
-  param_all_options,
-  param_name,
+  params_data_frame,
   report_format = "html_document",
-  report_suffix = "report",
-  report_output_dir = "inst"
+  report_prefix = "",
+  report_suffix = "",
+  report_output_directory = here::here()
 )
 }
 \arguments{
 \item{rmarkdown_file}{The RMarkdown file to be rendered}
 
-\item{param_all_options}{All possible options for the parameter (e.g. all 50 states)}
-
-\item{param_name}{The name of the parameter to be used for parameterized reporting}
+\item{params_data_frame}{A data frame with all of the parameter options (each variable name is the name of a parameter and all of the rows in that column are the parameter options)}
 
 \item{report_format}{The format of the report (html_document, pdf_document, word_document, etc)}
 
-\item{report_suffix}{The name of the prefix of the report names}
+\item{report_prefix}{Text to be put before the file names of rendered reports}
+
+\item{report_suffix}{Text to be put fterfile names of rendered reports}
 
 \item{report_output_dir}{The name of the directory where the reports will be rendered to}
 }
