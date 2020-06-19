@@ -7,9 +7,11 @@
 multireport(
   rmarkdown_file,
   params_data_frame,
-  report_format = "html_document",
+  report_title_param = 1,
   report_prefix = "",
   report_suffix = "",
+  report_title_to_lower = FALSE,
+  report_format = "html_document",
   report_output_directory = here::here()
 )
 }
@@ -18,13 +20,15 @@ multireport(
 
 \item{params_data_frame}{A data frame with all of the parameter options (each variable name is the name of a parameter and all of the rows in that column are the parameter options)}
 
-\item{report_format}{The format of the report (html_document, pdf_document, word_document, etc)}
+\item{report_title_param}{The name (in quotes) or column number of the variable to be used to create report titles}
 
 \item{report_prefix}{Text to be put before the file names of rendered reports}
 
-\item{report_suffix}{Text to be put fterfile names of rendered reports}
+\item{report_suffix}{Text to be put after names of rendered reports}
 
-\item{report_output_dir}{The name of the directory where the reports will be rendered to}
+\item{report_title_to_lower}{TRUE/FALSE (FALSE by default) whether you want the report file names to be lower case (e.g. alabama-report.html vs Alabama-Report.html)}
+
+\item{report_format}{The format of the report (html_document, pdf_document, word_document, etc)}
 }
 \value{
 

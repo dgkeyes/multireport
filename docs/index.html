@@ -73,27 +73,33 @@
 <a href="#multireport" class="anchor"></a>multireport</h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>Parameterized reporting is powerful but complicated. This package makes it simpler by providing a single function — <a href="reference/multireport.html"><code><a href="reference/multireport.html">multireport()</a></code></a> — to simplify the processing.</p>
+<p><a href="https://medium.com/@urban_institute/iterated-fact-sheets-with-r-markdown-d685eb4eafce">Parameterized reporting</a> is powerful but complicated. This package makes it simpler by providing a single function — <a href="reference/multireport.html"><code><a href="reference/multireport.html">multireport()</a></code></a> — to simplify the processing.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the package from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"dgkeyes/multireport"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"dgkeyes/multireport"</span>)</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>This shows how to make multiple reports using the <a href="reference/multireport.html"><code><a href="reference/multireport.html">multireport()</a></code></a> function:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(multireport)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="reference/multireport.html">multireport</a></span>(<span class="dt">rmarkdown_file =</span> <span class="st">"report.Rmd"</span>,</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">            <span class="dt">param_all_options =</span> fivethirtyeight<span class="op">::</span>bad_drivers<span class="op">$</span>state,</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">            <span class="dt">param_name =</span> <span class="st">"state"</span>,</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">            <span class="dt">report_format =</span> <span class="st">"html_document"</span>,</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">            <span class="dt">report_suffix =</span> <span class="st">"report"</span>,</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">            <span class="dt">report_output_dir =</span> <span class="st">"reports"</span>)</a></code></pre></div>
-<p>This will generate a series of reports in the report folder.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(multireport)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>parameters &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="dt">state =</span> <span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(fivethirtyeight<span class="op">::</span>bad_drivers<span class="op">$</span>state),</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="dt">losses =</span> <span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(fivethirtyeight<span class="op">::</span>bad_drivers<span class="op">$</span>losses)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="kw"><a href="reference/multireport.html">multireport</a></span>(<span class="dt">rmarkdown =</span> <span class="st">"inst/report.Rmd"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9"></a>            <span class="dt">params_data_frame =</span> parameters,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>            <span class="dt">report_title_param =</span> <span class="st">"state"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11"></a>            <span class="dt">report_suffix =</span> <span class="st">"-report"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12"></a>            <span class="dt">report_title_to_lower =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb2-13"><a href="#cb2-13"></a>            <span class="dt">report_format =</span> <span class="st">"html_document"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14"></a>            <span class="dt">report_output_directory =</span> <span class="st">"inst/reports/"</span>)</span></code></pre></div>
+<p>This will generate a series of reports in the inst/reports folder.</p>
 </div>
 </div>
   </div>

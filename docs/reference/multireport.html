@@ -117,9 +117,11 @@
     <pre class="usage"><span class='fu'>multireport</span>(
   <span class='no'>rmarkdown_file</span>,
   <span class='no'>params_data_frame</span>,
-  <span class='kw'>report_format</span> <span class='kw'>=</span> <span class='st'>"html_document"</span>,
+  <span class='kw'>report_title_param</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>report_prefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
   <span class='kw'>report_suffix</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>report_title_to_lower</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>report_format</span> <span class='kw'>=</span> <span class='st'>"html_document"</span>,
   <span class='kw'>report_output_directory</span> <span class='kw'>=</span> <span class='kw pkg'>here</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/here/man/here.html'>here</a></span>()
 )</pre>
 
@@ -135,8 +137,8 @@
       <td><p>A data frame with all of the parameter options (each variable name is the name of a parameter and all of the rows in that column are the parameter options)</p></td>
     </tr>
     <tr>
-      <th>report_format</th>
-      <td><p>The format of the report (html_document, pdf_document, word_document, etc)</p></td>
+      <th>report_title_param</th>
+      <td><p>The name (in quotes) or column number of the variable to be used to create report titles</p></td>
     </tr>
     <tr>
       <th>report_prefix</th>
@@ -144,11 +146,15 @@
     </tr>
     <tr>
       <th>report_suffix</th>
-      <td><p>Text to be put fterfile names of rendered reports</p></td>
+      <td><p>Text to be put after names of rendered reports</p></td>
     </tr>
     <tr>
-      <th>report_output_dir</th>
-      <td><p>The name of the directory where the reports will be rendered to</p></td>
+      <th>report_title_to_lower</th>
+      <td><p>TRUE/FALSE (FALSE by default) whether you want the report file names to be lower case (e.g. alabama-report.html vs Alabama-Report.html)</p></td>
+    </tr>
+    <tr>
+      <th>report_format</th>
+      <td><p>The format of the report (html_document, pdf_document, word_document, etc)</p></td>
     </tr>
     </table>
 

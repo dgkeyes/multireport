@@ -8,15 +8,15 @@ output: github_document
 <!-- badges: start -->
 <!-- badges: end -->
 
-Parameterized reporting is powerful but complicated. This package makes it simpler by providing a single function — [`multireport()`](reference/multireport.html) — to simplify the processing.
+[Parameterized reporting](https://medium.com/@urban_institute/iterated-fact-sheets-with-r-markdown-d685eb4eafce) is powerful but complicated. This package makes it simpler by providing a single function — [`multireport()`](reference/multireport.html) — to simplify the processing.
 
 ## Installation
 
 You can install the package from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("dgkeyes/multireport")
+# install.packages("remotes")
+remotes::install_github("dgkeyes/multireport")
 ```
 ## Example
 
@@ -25,17 +25,18 @@ This shows how to make multiple reports using the [`multireport()`](reference/mu
 ```{r eval = FALSE}
 library(multireport)
 
-baddrivers_params <- tibble::tibble(
-  state = fivethirtyeight::bad_drivers$state,
-  losses = fivethirtyeight::bad_drivers$losses
+parameters <- tibble(
+  state = unique(fivethirtyeight::bad_drivers$state),
+  losses = unique(fivethirtyeight::bad_drivers$losses)
 )
 
-multireport(rmarkdown_file = "report.Rmd",
-            params_data_frame = baddrivers_params,
+multireport(rmarkdown = "inst/report.Rmd",
+            params_data_frame = parameters,
+            report_title_param = "state",
+            report_suffix = "-report",
+            report_title_to_lower = TRUE,
             report_format = "html_document",
-            report_prefix = "",
-            report_suffix = "",
-            report_output_directory = "reports")
+            report_output_directory = "inst/reports/")
 ```
 
-This will generate a series of reports in the reports folder. 
+This will generate a series of reports in the inst/reports folder. 
