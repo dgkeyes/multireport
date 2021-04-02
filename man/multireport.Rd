@@ -11,7 +11,7 @@ multireport(
   report_prefix = "",
   report_suffix = "",
   report_title_to_lower = FALSE,
-  report_format = "html_document",
+  report_format = "all",
   report_output_directory = here::here()
 )
 }
@@ -29,6 +29,8 @@ multireport(
 \item{report_title_to_lower}{TRUE/FALSE (FALSE by default) whether you want the report file names to be lower case (e.g. alabama-report.html vs Alabama-Report.html)}
 
 \item{report_format}{The format of the report (html_document, pdf_document, word_document, etc)}
+
+\item{report_output_directory}{The directory where the rendered reports should be placed}
 }
 \value{
 
